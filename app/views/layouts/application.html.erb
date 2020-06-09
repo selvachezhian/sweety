@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Blood Glucose <span class="sr-only">(current)</span></a>
+          <%= link_to 'Blood Glucose', blood_glucoses_path, { class: 'nav-link' } -%>
         </li>
         <li class="nav-item">
           <%= link_to 'This month till now', this_month_till_date_blood_glucoses_path, { class: 'nav-link' } -%>
