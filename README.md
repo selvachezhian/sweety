@@ -1,24 +1,6 @@
-# README
+# Sweety
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+End user can register and add their test results.  The same can be filtered and viewed by various conditions.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Devise is used for authentication purpose.
+- Test cases are written in Rspec & shoulda matchers
