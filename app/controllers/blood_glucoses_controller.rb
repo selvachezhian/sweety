@@ -1,4 +1,7 @@
 class BloodGlucosesController < ApplicationController
+
+  DAILY_QUOTA = 4.freeze
+
   def index
     @blood_glucoses = @user.blood_glucoses.today
   end
@@ -8,13 +11,18 @@ class BloodGlucosesController < ApplicationController
   end
 
   def create
-    @blood_glucose = @user.blood_glucoses.new(blood_glucose_params)
-    if @blood_glucose.save
-      flash[:notice] = 'Blood glucose reading value added successfully'
+    if @user.blood_glucoses.today.count >= DAILY_QUOTA
+      flash[:error] = "Your daily quota #{DAILY_QUOTA} has been reached.  You can not add more entry today"
       redirect_to action: :index
     else
-      flash[:error] = 'There is some problem in saving your reading value'
-      render action: :create
+      @blood_glucose = @user.blood_glucoses.new(blood_glucose_params)
+      if @blood_glucose.save
+        flash[:notice] = 'Blood glucose reading value added successfully'
+        redirect_to action: :index
+      else
+        flash[:error] = 'There is some problem in saving your reading value'
+        render action: :create
+      end
     end
   end
 
