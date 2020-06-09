@@ -1,0 +1,12 @@
+
+<%= form_with model: @blood_glucose do |f| %>
+  <div class="form-group mb-2">
+    <label for="exampleInputEmail1">Glucose value</label>
+    <%= f.number_field :value, { class: 'form-control', required: true } %>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Reading date</label>
+    <%= f.date_select :reading_date, { class: 'form-control' } %>
+  </div>
+  <%= f.submit 'Add Entry', { class: 'btn btn-primary' } %>
+<% end %>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sweety</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Blood Glucose <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'This month till now', this_month_till_date_blood_glucoses_path, { class: 'nav-link' } -%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Monthly', monthly_blood_glucoses_path, { class: 'nav-link' } -%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Custom', custom_blood_glucoses_path, { class: 'nav-link' } -%>
+        </li>
+
+      </ul>
+      <div class="my-2 my-lg-0">
+        <label><%= @user.email %></label>
+      </div>
+    </div>
+  </nav>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

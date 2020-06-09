@@ -1,0 +1,20 @@
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Reading date</th>
+    <th scope="col">Value</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% blood_glucoses.each do |blood_glucose| %>
+    <tr>
+      <th scope="row"><%= blood_glucose.id %></th>
+      <td><%= blood_glucose.reading_date.try(:strftime, '%F') %></td>
+      <td><%= blood_glucose.value %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

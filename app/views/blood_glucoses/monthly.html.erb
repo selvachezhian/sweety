@@ -1,0 +1,10 @@
+<%= link_to 'Add Entry', new_blood_glucose_path, { class: 'btn btn-primary' } %>
+
+<%= form_tag(monthly_blood_glucoses_path, method: :get) do |f| %>
+  <%= select_month(@selected_month) %>
+  <%= select_year(@selected_month) %>
+  <%= submit_tag 'Fetch results', { class: 'btn btn-primary' } %>
+<% end %>
+
+<%= render partial: 'list', locals: { blood_glucoses: @blood_glucoses } %>
+
